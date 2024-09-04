@@ -16,10 +16,15 @@ export const searchContacts = async (request, response, next) => {
     const regex = new RegExp(sanitizedSearchTerm, "i");
 
     const contacts = await User.find({
-      $and: [{ _id: { $ne: request.userId } }],
+      $and: [
+        { _id: { $ne: request.userId } },
+        {
+          $or: [{ firstName: regex }, { email: regex }, { lastName: regex }],
+        },
+      ],
     });
 
-    return response.status(200).send("Logout Successfully.");
+    return response.status(200).json({ contacts });
   } catch (error) {
     console.log({ error });
     return response.status(500).send("Internal Server Error");

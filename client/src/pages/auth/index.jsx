@@ -36,6 +36,21 @@ const Auth = () => {
         return true;
     }
 
+    const handleSignup = async () => {
+        if (validateSignup()) {
+            const response = await apiClient.post(
+                SIGNUP_ROUTE,
+                { email, password },
+                { withCredentials: true }
+            );
+            if (response.status === 201) {
+                setUserInfo(response.data.user);
+                navigate("/profile");
+            }
+            console.log({ response });
+        }
+    };
+
     const validateLogin = () => {
         if (!email.length) {
             toast.error("Email is required.");
@@ -69,20 +84,7 @@ const Auth = () => {
 
     };
 
-    const handleSignup = async () => {
-        if (validateSignup()) {
-            const response = await apiClient.post(
-                SIGNUP_ROUTE,
-                { email, password },
-                { withCredentials: true }
-            );
-            if (response.status === 201) {
-                setUserInfo(response.data.user);
-                navigate("/profile");
-            }
-            console.log({ response });
-        }
-    };
+    
 
     return (
         <div className="h-[100vh] w-[100vw] flex items-center justify-center">

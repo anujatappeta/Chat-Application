@@ -36,6 +36,18 @@ const Auth = () => {
         return true;
     }
 
+    const validateLogin = () => {
+        if (!email.length) {
+            toast.error("Email is required.");
+            return false;
+        }
+        if (!password.length) {
+            toast.error("Password is required.");
+            return false;
+        }
+        return true;
+    }
+
     const handleSignup = async () => {
         if (validateSignup()) {
             const response = await apiClient.post(
@@ -50,18 +62,6 @@ const Auth = () => {
             console.log({ response });
         }
     };
-
-    const validateLogin = () => {
-        if (!email.length) {
-            toast.error("Email is required.");
-            return false;
-        }
-        if (!password.length) {
-            toast.error("Password is required.");
-            return false;
-        }
-        return true;
-    }
 
     const handleLogin = async () => {
         if (validateLogin()) {

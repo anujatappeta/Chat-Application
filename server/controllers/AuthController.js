@@ -56,7 +56,7 @@ export const login = async (request, response, next) => {
       secure: true,
       sameSite: "None",
     });
-    return response.status(201).json({
+    return response.status(200).json({
       user: {
         id: user.id,
         email: user.email,

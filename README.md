@@ -57,8 +57,8 @@ Follow these steps to set up the Chat Application on your local machine:
 
 ## Folder Structure
 
-- **public/**: Contains frontend files (HTML, CSS, JavaScript).
-- **src/**: Contains the backend server code.
+- **client/**: Contains frontend files (HTML, CSS, JavaScript).
+- **server/**: Contains the backend server code.
 - **views/**: Contains the views for the application.
 - **server.js**: Entry point for the application.
 

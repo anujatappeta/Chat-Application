@@ -59,8 +59,7 @@ Follow these steps to set up the Chat Application on your local machine:
 
 - **client/**: Contains frontend files (HTML, CSS, JavaScript).
 - **server/**: Contains the backend server code.
-- **views/**: Contains the views for the application.
-- **server.js**: Entry point for the application.
+- **client/src/pages/auth/index.jsx**: Entry point for the application.
 
 ## Contributing
 
